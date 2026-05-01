@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+
+    --bg-marketing: #08090a;
+    --bg-deepest: #010102;
+    --bg-panel: #0f1011;
+    --bg-surface-3: #191a1b;
+    --bg-surface-2: #28282c;
+
+    --text-primary: #f7f8f8;
+    --text-secondary: #d0d6e0;
+    --text-tertiary: #8a8f98;
+    --text-quaternary: #62666d;
+
+    --brand: #5e6ad2;
+    --brand-accent: #7170ff;
+    --brand-hover: #828fff;
+
+    --border-subtle: rgba(255, 255, 255, 0.05);
+    --border-standard: rgba(255, 255, 255, 0.08);
+    --border-primary: #23252a;
+
+    --fill-1: rgba(255, 255, 255, 0.02);
+    --fill-2: rgba(255, 255, 255, 0.04);
+    --fill-3: rgba(255, 255, 255, 0.05);
+
+    --shadow-elevated: rgba(0, 0, 0, 0.4) 0 2px 4px;
+    --shadow-ring: rgba(0, 0, 0, 0.2) 0 0 0 1px;
+    --shadow-focus: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg-marketing);
+    color: var(--text-primary);
+    font-family:
+      "Inter Variable", "Inter", "SF Pro Display", -apple-system, system-ui,
+      "Segoe UI", Roboto, sans-serif;
+    font-feature-settings: "cv01", "ss03";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center gap-1.5 rounded-comfortable border border-transparent px-4 py-2 text-[13px] font-medium leading-none transition-colors duration-150;
+  }
+  .btn-primary {
+    @apply bg-brand text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)] hover:bg-brand-hover disabled:cursor-not-allowed disabled:bg-bg-surface3 disabled:text-ink-quaternary;
+  }
+  .btn-ghost {
+    @apply bg-fill-1 text-[#e2e4e7] border-[#24282c] hover:bg-fill-3 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-link {
+    @apply bg-transparent px-1 text-ink-secondary hover:text-ink-primary;
+  }
+
+  .field-label {
+    @apply mb-1 block text-[11px] font-medium uppercase tracking-[0.12em] text-ink-tertiary;
+  }
+  .field-input {
+    @apply w-full rounded-comfortable border border-line-primary bg-bg-panel px-3 py-2 text-[13px] text-ink-primary placeholder:text-ink-quaternary focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20;
+  }
+  .field-textarea {
+    @apply w-full resize-y rounded-comfortable border border-line-primary bg-bg-panel px-3 py-2 text-[13px] leading-relaxed text-ink-primary placeholder:text-ink-quaternary focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20;
+  }
+
+  .panel {
+    @apply rounded-panel border border-line-standard bg-fill-1;
+  }
+  .panel-padded {
+    @apply rounded-panel border border-line-standard bg-fill-1 p-5;
+  }
+
+  .pill {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-line-primary bg-transparent px-2.5 py-0.5 text-[11px] font-medium text-ink-secondary;
+  }
+
+  .overline {
+    @apply text-[11px] font-medium uppercase tracking-[0.12em] text-ink-tertiary;
+  }
+
+  /* Hero background grid + glow */
+  .hero-grid {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(
+      60% 50% at 50% 30%,
+      #000 30%,
+      transparent 75%
+    );
+    mask-image: radial-gradient(60% 50% at 50% 30%, #000 30%, transparent 75%);
+  }
+  .hero-glow {
+    background:
+      radial-gradient(
+        60% 60% at 50% 30%,
+        rgba(94, 106, 210, 0.22),
+        rgba(94, 106, 210, 0) 70%
+      ),
+      radial-gradient(
+        40% 40% at 70% 10%,
+        rgba(113, 112, 255, 0.18),
+        rgba(113, 112, 255, 0) 70%
+      );
+    filter: blur(2px);
+  }
+
+  /* Sticky blurred nav */
+  .nav-bar {
+    background: rgba(8, 9, 10, 0.72);
+    -webkit-backdrop-filter: saturate(140%) blur(12px);
+    backdrop-filter: saturate(140%) blur(12px);
+  }
+}

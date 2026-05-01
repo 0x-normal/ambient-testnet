@@ -1,0 +1,17 @@
+# dependencies
+node_modules
+
+# next build output
+.next
+out
+*.tsbuildinfo
+next-env.d.ts
+
+# env (NEVER commit real keys)
+.env
+.env*.local
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
