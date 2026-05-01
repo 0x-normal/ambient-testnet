@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: ambient-bench
+    runtime: node
+    plan: free
+    rootDir: week-12/dev-loop/bench-web
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: GROQ_API_KEY
+        sync: false
